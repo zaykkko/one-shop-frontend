@@ -1,0 +1,45 @@
+:root {
+    --light-primary: #fff;
+    --light-primary-darker: #E5E5E5;
+    --light-secondary: #2A7AE4;
+    --light-secondary-darker: #2261b3;
+
+    --light-primary-text: #fff;
+    --light-primary-text-darker: #464646;
+
+    --def-gap: 1rem;
+    --fs-1: calc(13px + 0.57rem);
+    --fs-2: calc(13px + 0.37rem);
+    --fs-3: calc(12px + 0.37rem);
+    --fs-4: calc(11px + 0.36rem);
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--light-primary-darker);
+}
+
+button {
+    outline: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+body, header, main, footer, button, html, div, a, i, mark, strong, section, ul, li {
+    box-sizing: border-box;
+    color: var(--light-primary-text-darker);
+    text-decoration: none;
+}
+
+svg, img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+span.icon {
+    display: inline-block;
+    vertical-align: text-bottom;
+}
