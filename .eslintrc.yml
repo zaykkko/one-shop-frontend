@@ -1,0 +1,20 @@
+---
+root: true
+env:
+  browser: true
+  es6: true
+parser: "@typescript-eslint/parser"
+parserOptions:
+  project:
+    - ./tsconfig.json
+plugins:
+  - react-hooks
+extends:
+  - plugin:react/recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:react/jsx-runtime #https://github.com/yannickcr/eslint-plugin-react#configuration
+settings:
+  react:
+    version: detect
+rules:
+  "react/react-in-jsx-scope": "off"
