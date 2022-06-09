@@ -1,0 +1,73 @@
+#outstanding-products {
+    .container {
+        overflow: hidden;
+        position: relative;
+
+        .product-cat {
+            display: flex;
+            flex-flow: row nowrap;
+            flex-direction: column;
+            gap: calc(var(--def-gap) + 0.5rem);
+            padding: 16px;
+
+            .product-cat-header {
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+
+                h2 {
+                    font-size: var(--fs-1);
+                    font-weight: 600;
+                }
+
+                a {
+                    color: var(--light-secondary);
+                    font-weight: 500;
+
+                    .arrow-icon {
+                        height: 20px;
+                        width: 20px;
+                    }
+                }
+            }
+
+            .product-cat-body {
+                .product-list {
+                    display: grid;
+                    gap: var(--def-gap);
+                    grid-template-columns: repeat(auto-fit, minmax(12em, 0.3fr));
+                    justify-content: space-around;
+
+                    .product {
+                        display: flex;
+                        flex-flow: column nowrap;
+                        gap: var(--def-gap);
+                        margin-bottom: var(--def-gap);
+
+                        .product-body {
+                            display: flex;
+                            flex-flow: column nowrap;
+                            gap: calc(var(--def-gap) - 0.5rem);
+
+                            .product-title {
+                                font-size: var(--fs-3);
+                                font-weight: 500;
+                            }
+
+                            .product-price {
+                                font-size: var(--fs-3);
+                                font-weight: 600;
+                            }
+
+                            .product-hyperlink {
+                                color: var(--light-secondary);
+                                font-size: var(--fs-4);
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
