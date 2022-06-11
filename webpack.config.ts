@@ -7,11 +7,7 @@ import {EnvironmentPlugin, BannerPlugin} from "webpack";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
-import type {
-    WebpackPluginInstance,
-    Configuration,
-    LoaderContext,
-} from "webpack";
+import type {WebpackPluginInstance, Configuration} from "webpack";
 
 const IS_DEV = process.env.production || !process.env.development;
 
@@ -53,13 +49,19 @@ const webpackConfig = (): Configuration => {
                             options: {
                                 importLoaders: 2,
                                 modules: {
-                                    localIdentName: "[local]-[hash:base64:6]",
+                                    localIdentName: IS_DEV
+                                        ? "[local]-[hash:base64:6]"
+                                        : "[hash:base64:6]",
                                 },
                             },
                         },
                         "postcss-loader",
                         "sass-loader",
                     ],
+                },
+                {
+                    test: /\.svg$/,
+                    use: ["@svgr/webpack"],
                 },
                 {
                     test: /\.(svg|png|jpg|json)$/,
