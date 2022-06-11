@@ -1,4 +1,5 @@
-#main-content {
-    @import 'promotion';
-    @import 'products';
+main {
+    background-color: var(--black-5);
+
+    @import 'promotion', 'products', 'contact';
 }

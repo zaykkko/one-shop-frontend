@@ -1,0 +1,73 @@
+.contact {
+    background-color: var(--blue-10);
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--gap);
+
+    .contact__links {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        text-align: center;
+        gap: var(--gap);
+
+        a .contact__logo {
+            width: 12.5rem;
+        }
+
+        .contact__nav ul li {
+            margin-bottom: 1rem;
+
+            a {
+                font-weight: 500;
+            }
+        }
+    }
+
+    .contact__form form {
+        display: flex;
+        flex-flow: column wrap;
+        gap: var(--gap);
+
+        .form__fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+
+            legend {
+                margin-bottom: var(--gap);
+                font-weight: 600;
+            }
+
+            .form__inputgroup {
+                background: var(--white);
+                border-radius: var(--radius);
+                border-bottom: 1px solid var(--black-30);
+                display: flex;
+                flex-flow: column;
+                padding: 1rem;
+
+                label {
+                    color: var(--black-50);
+                }
+
+                textarea {
+                    resize: vertical;
+                    min-height: 5rem;
+                }
+
+                input, textarea, label {
+                    padding-bottom: 0.5rem;
+                }
+
+                input, textarea {
+                    border-bottom: 1px solid var(--black-30);
+                }
+            }
+        }
+
+        .form__submit {
+            padding: 1rem;
+        }
+    }
+}

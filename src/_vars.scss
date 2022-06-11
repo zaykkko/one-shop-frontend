@@ -1,15 +1,23 @@
 :root {
-    --light-primary: #fff;
-    --light-primary-darker: #E5E5E5;
-    --light-secondary: #2A7AE4;
-    --light-secondary-darker: #2261b3;
+    --raleway: 'Raleway', sans-serif;
+    
+    --white: #ffffff;
+    --blue: #2a7ae4;
+    --blue-10: #eaf2fd;
+    --blue-20: #d4e4fa;
+    --blue-80: #5595e9;
+    --blue-120: #2261b3;
+    --black: #464646;
+    --black-5: #f5f5f5;
+    --black-30: #c8c8c8;
+    --black-50: #a2a2a2;
+    --black-80: #6b6b6b;
 
-    --light-primary-text: #fff;
-    --light-primary-text-darker: #464646;
+    --gap: 1rem;
+    --radius: calc(1rem / 4);
 
-    --def-gap: 1rem;
-    --fs-1: calc(13px + 0.57rem);
-    --fs-2: calc(13px + 0.37rem);
-    --fs-3: calc(12px + 0.37rem);
-    --fs-4: calc(11px + 0.36rem);
+    --fs-1: 2.15rem;
+    --fs-2: 1.375rem;
+    --fs-3: 0.975rem;
+    --fs-4: 0.675rem
 }

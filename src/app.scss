@@ -1,9 +1,12 @@
 @use "reset";
 @use "vars";
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Raleway', sans-serif;
-    background-color: var(--light-primary-darker);
+    background: var(--white);
 }
 
 button {
@@ -11,16 +14,84 @@ button {
     border: none;
     background: transparent;
     padding: 0;
+}
+
+button,
+a {
     cursor: pointer;
 }
 
-body, header, main, footer, button, html, div, a, i, mark, strong, section, ul, li {
+body,
+header,
+main,
+footer,
+button,
+html,
+div,
+a,
+i,
+mark,
+strong,
+section,
+ul,
+li {
     box-sizing: border-box;
     color: var(--light-primary-text-darker);
     text-decoration: none;
 }
 
-svg, img {
+h1 {
+    font-size: 2.145rem;
+}
+
+h2, input, textarea, legend {
+    font-size: 1.145rem;
+}
+
+p {
+    font-size: 1.17rem;
+}
+
+h3,
+a,
+button, label {
+    font-size: 1rem;
+}
+
+label, input, textarea {
+    display: block;
+}
+
+button,
+span,
+input,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+legend, label, textarea {
+    font-family: var(--raleway);
+    color: var(--black);
+}
+
+input, textarea {
+    outline: none;
+    background: transparent;
+    border: none;
+    width: 100%;
+}
+
+i {
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+
+svg,
+img {
     display: block;
     width: 100%;
     height: 100%;
