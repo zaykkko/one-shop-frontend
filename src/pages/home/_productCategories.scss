@@ -1,0 +1,103 @@
+@import "@utils/breakpoints";
+
+.products {
+    .products__category {
+        display: flex;
+        flex-flow: row nowrap;
+        flex-direction: column;
+        gap: calc(var(--gap) + 0.5rem);
+        margin-top: 1rem;
+
+        .products__header {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+
+            h1 {
+                font-weight: 700;
+                font-size: 1.9rem;
+            }
+
+            a {
+                display: flex;
+                align-items: center;
+                color: var(--blue-80);
+                font-weight: 700;
+
+                .icon__arrowRight {
+                    width: 1.8rem;
+                }
+            }
+        }
+
+        .products__body {
+            .products__listWrapper {
+                display: grid;
+                gap: var(--gap);
+                grid-template-columns: repeat(2, 1fr);
+                justify-content: space-around;
+
+                .productCard {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    gap: var(--gap);
+                    margin-bottom: var(--gap);
+
+                    img {
+                        min-width: 9.75rem;
+                        height: 12.65rem;
+                        object-fit: cover;
+                    }
+
+                    .productCard__body {
+                        display: flex;
+                        flex-flow: column nowrap;
+                        gap: calc(var(--gap) - 0.5rem);
+
+                        .productCard__title h2 {
+                            font-weight: 500;
+                        }
+
+                        .productCard__price p {
+                            font-weight: 600;
+                        }
+
+                        .productCard__anchor {
+                            color: var(--blue-80);
+                            font-weight: 600;
+                            transition: 0.2s color ease-in;
+
+                            &:hover {
+                                color: var(--blue-120);
+                            }
+                        }
+                    }
+
+                    &:nth-child(n+5) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    @include for_breakpoint(tablet) {
+        .products__category .products__body {
+            .products__listWrapper {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    }
+
+    @include for_breakpoint(desktop) {
+        .products__category .products__body {
+            .products__listWrapper {
+                grid-template-columns: repeat(6, 1fr);
+
+                .productCard:nth-child(n+5) {
+                    display: flex;
+                }
+            }
+        }
+    }
+}

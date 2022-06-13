@@ -1,5 +1,5 @@
 main {
     background-color: var(--black-5);
 
-    @import 'promotion', 'products', 'contact';
+    @import "promotionBanner", "productCategories";
 }

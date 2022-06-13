@@ -1,0 +1,19 @@
+.footer {
+    background-color: var(--white);
+
+    @import "navigation";
+
+    .author {
+        text-align: center;
+
+        h1,
+        a,
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        a {
+            color: var(--blue);
+        }
+    }
+}

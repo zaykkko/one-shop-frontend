@@ -1,8 +1,9 @@
 import HomeStyles from "./home.scss";
-import SharedStyles from "@shared/shared.scss";
+import SharedStyles from "@shared/styles/shared.scss";
 
 import classnames from "classnames";
 import {Link} from "react-location";
+import {LazyLoadImage} from "react-lazy-load-image-component";
 
 import STORE_PRODUCTS_DATA from "../../data/defaultStoreProducts";
 
@@ -19,11 +20,11 @@ type ProductCategory = {
     products: ProductData[];
 };
 
-const ProductItem: React.FC<{productData: ProductData}> = ({
+const ProductItem = ({
     productData: {id, preview_id, title, price},
-}) => (
+}: React.PropsWithChildren<{productData: ProductData}>) => (
     <li className={HomeStyles.productCard}>
-        <img src={`./assets/img/unsplash_${preview_id}.png`} />
+        <LazyLoadImage src={`./assets/img/unsplash_${preview_id}.png`} />
         <div className={HomeStyles.productCard__body}>
             <div className={HomeStyles.productCard__title}>
                 <h2>{title}</h2>
@@ -41,15 +42,15 @@ const ProductItem: React.FC<{productData: ProductData}> = ({
     </li>
 );
 
-const Category: React.FC<{data: ProductCategory}> = ({
+const Category = ({
     data: {categoryName, categoryGroupId, products},
-}) => (
+}: React.PropsWithChildren<{data: ProductCategory}>) => (
     <section className={HomeStyles.products__category}>
         <div className={HomeStyles.products__header}>
             <h1>{categoryName}</h1>
             <Link to={`./sales/${categoryGroupId}`}>
                 Ver todo
-                <i className={HomeStyles["icon-arrow-right"]}>
+                <i className={HomeStyles.icon__arrowRight}>
                     <svg focusable="false" viewBox="0 0 15 15">
                         <use href="#right-arrow"></use>
                     </svg>

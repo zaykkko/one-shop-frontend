@@ -6,7 +6,8 @@ import {Router, Outlet} from "react-location";
 
 import Sprites from "./sprites";
 import {routes, location} from "./router";
-import Header from "./shared/header";
+import Header from "./shared/components/header";
+import Footer from "./shared/components/footer";
 
 const root = createRoot(
     document.getElementById(
@@ -20,6 +21,7 @@ root.render(
         <Router routes={routes} location={location}>
             <Header />
             <Outlet />
+            <Footer />
         </Router>
     </StrictMode>
 );

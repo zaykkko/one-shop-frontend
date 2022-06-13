@@ -1,0 +1,105 @@
+@import "@utils/breakpoints";
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--gap);
+    height: 5rem;
+
+    a i.header__logo {
+        width: 10rem;
+    }
+
+    .header__searchForm {
+        display: none;
+        flex: 3 1;
+        align-items: center;
+        background: var(--black-5);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        gap: calc(var(--gap) - 0.5rem);
+
+        .header__fieldset {
+            flex-grow: 1;
+
+            input {
+                max-width: 25rem;
+            }
+        }
+    }
+
+    .header__loginBtn {
+        background-color: transparent;
+        border: 1px solid var(--blue);
+        color: var(--blue);
+        font-weight: 600;
+        padding: 12px 3rem;
+        transition: background-color 120ms ease-in-out;
+
+        &:hover {
+            background-color: var(--blue-20);
+        }
+    }
+
+    .header__searchBtn {
+        background-color: transparent;
+        border-radius: 5px;
+        font-size: var(--fs-2);
+        padding: 5px;
+        transition: background-color 120ms ease-in-out;
+
+        &:hover {
+            background-color: var(--blue-10);
+        }
+    }
+
+    i.icon__search,
+    i.icon__cross {
+        width: 1.8rem;
+    }
+
+    i.icon__cross {
+        display: none;
+    }
+
+    &.header-searching {
+        a,
+        .header__loginBtn {
+            display: none;
+        }
+
+        .header__searchForm {
+            display: flex;
+        }
+
+        i.icon__search {
+            display: none;
+        }
+
+        i.icon__cross {
+            display: block;
+        }
+    }
+
+    @include for_breakpoint(tablet desktop) {
+        .header__searchBtn {
+            display: none;
+        }
+
+        .header__searchForm {
+            display: flex;
+        }
+    }
+
+    @include for_breakpoint(desktop) {
+        .header__searchForm {
+            flex: 0 1;
+
+            input {
+                width: 25rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.btn_basic {
+    background-color: var(--blue);
+    color: var(--white);
+    text-align: center;
+    padding: 12px 16px;
+    transition: background-color 125ms ease-in-out;
+
+    &:hover {
+        background-color: var(--blue-120);
+    }
+}

@@ -1,0 +1,13 @@
+@import "@utils/breakpoints";
+
+.container {
+    position: relative;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+@include for_breakpoint(desktop) {
+    .container {
+        padding: 2rem 9.5rem;
+    }
+}

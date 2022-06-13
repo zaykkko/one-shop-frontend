@@ -3,17 +3,7 @@
 
 html {
     scroll-behavior: smooth;
-}
-
-body {
     background: var(--white);
-}
-
-button {
-    outline: none;
-    border: none;
-    background: transparent;
-    padding: 0;
 }
 
 button,
@@ -36,30 +26,6 @@ section,
 ul,
 li {
     box-sizing: border-box;
-    color: var(--light-primary-text-darker);
-    text-decoration: none;
-}
-
-h1 {
-    font-size: 2.145rem;
-}
-
-h2, input, textarea, legend {
-    font-size: 1.145rem;
-}
-
-p {
-    font-size: 1.17rem;
-}
-
-h3,
-a,
-button, label {
-    font-size: 1rem;
-}
-
-label, input, textarea {
-    display: block;
 }
 
 button,
@@ -73,21 +39,77 @@ h4,
 h5,
 h6,
 p,
-legend, label, textarea {
+legend,
+label,
+textarea {
     font-family: var(--raleway);
     color: var(--black);
 }
 
-input, textarea {
+h1 {
+    font-size: 2.245rem;
+}
+
+h2,
+input,
+textarea,
+legend {
+    font-size: 1.145rem;
+}
+
+p {
+    font-size: 1.17rem;
+}
+
+h3,
+a,
+button,
+label {
+    font-size: 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    outline: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+label,
+input,
+textarea {
+    display: block;
+}
+
+input,
+textarea {
     outline: none;
     background: transparent;
     border: none;
     width: 100%;
+
+    &:-internal-autofill-previewed,
+    &:-internal-autofill-selected,
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        box-shadow: 0 0 0 30px var(--white) inset;
+        -webkit-text-fill-color: var(--black);
+    }
 }
 
 i {
     display: inline-block;
     vertical-align: text-bottom;
+
+    & ~ [class*="icon__"] {
+        width: 1.8rem;
+    }
 }
 
 svg,
