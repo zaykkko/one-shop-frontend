@@ -2,3 +2,14 @@
 extends: stylelint-config-standard-scss
 rules:
   color-no-invalid-hex: true
+  indentation:
+    - 4
+  selector-list-comma-newline-before: never-multi-line
+  selector-list-comma-newline-after: always
+  block-closing-brace-newline-before: always
+  selector-class-pattern: ^([a-z][a-zA-Z0-9]*)(_{1,2}[a-zA-Z0-9]+)?(-[a-z]*)?$
+  scss/dollar-variable-pattern: ^([a-z][a-z0-9]*)(_{1,2}[a-zA-Z0-9]+)*$
+  scss/at-mixin-pattern: ^([a-z][a-z0-9]*)(_{1,2}[a-zA-Z0-9]+)*$
+  no-invalid-position-at-import-rule: null
+  length-zero-no-unit: null
+  number-leading-zero: null
