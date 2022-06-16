@@ -2,12 +2,15 @@ import "./app.scss";
 
 import {StrictMode} from "react";
 import {createRoot} from "react-dom/client";
-import {Router, Outlet} from "react-location";
+import {Outlet} from "react-location";
 
-import Sprites from "./sprites";
-import {routes, location} from "./router";
-import Header from "./shared/components/header";
-import Footer from "./shared/components/footer";
+import {RouterProvider} from "./router";
+import {AluraGeekProvider} from "@context/aluraGeek";
+import {AuthProvider} from "@context/auth";
+
+import Header from "@shared/header";
+import Main from "@shared/main";
+import Footer from "@shared/footer";
 
 const root = createRoot(
     document.getElementById(
@@ -17,11 +20,16 @@ const root = createRoot(
 
 root.render(
     <StrictMode>
-        <Sprites />
-        <Router routes={routes} location={location}>
-            <Header />
-            <Outlet />
-            <Footer />
-        </Router>
+        <AluraGeekProvider>
+            <AuthProvider>
+                <RouterProvider>
+                    <Header />
+                    <Main>
+                        <Outlet />
+                    </Main>
+                    <Footer />
+                </RouterProvider>
+            </AuthProvider>
+        </AluraGeekProvider>
     </StrictMode>
 );

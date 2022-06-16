@@ -9,22 +9,18 @@
 
     .contact__links {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         flex-flow: column wrap;
         justify-content: center;
         text-align: center;
         gap: var(--gap);
         flex-grow: 1;
 
-        a .contact__logo {
-            width: 12.5rem;
-        }
-
         .contact__nav {
             flex-grow: 1;
 
             ul li {
-                margin-bottom: 1rem;
+                margin-bottom: 1.5rem;
 
                 a {
                     font-weight: 500;
@@ -38,72 +34,7 @@
         }
     }
 
-    .contact__form {
-        flex-grow: 2;
-
-        form {
-            display: flex;
-            flex-flow: column wrap;
-            gap: var(--gap);
-
-            .form__fieldset {
-                display: flex;
-                flex-direction: column;
-                gap: var(--gap);
-
-                legend {
-                    margin-bottom: var(--gap);
-                    font-weight: 600;
-                }
-
-                .form__inputgroup {
-                    background: var(--white);
-                    border-radius: var(--radius);
-                    border-bottom: 2px solid var(--black-30);
-                    display: flex;
-                    flex-flow: column;
-                    padding: 1rem;
-
-                    .form__label {
-                        color: var(--black-50);
-                        padding-bottom: 0.5rem;
-                    }
-
-                    .form__inputLine {
-                        position: relative;
-                        margin: auto;
-                        height: 2px;
-                        width: 0px;
-                        transition: .25s width ease-in-out;
-                        top: -2px;
-                    }
-
-                    .form__input {
-                        border: none;
-                        border-bottom: 2px solid var(--black-30);
-                        background-color: inherit;
-                        display: block;
-                        padding-bottom: 0.5rem;
-
-                        &:focus + .form__inputLine {
-                            width: 100%;
-                            background-color: #02add7;
-                        }
-                    }
-
-                    textarea.form__input {
-                        resize: vertical;
-                        min-height: 5rem;
-                    }
-                }
-            }
-        }
-
-        .form__submit {
-            align-self: flex-start;
-            text-align: left;
-        }
-    }
+    @import "contactForm";
 
     @include for_breakpoint(tablet desktop) {
         flex-flow: row wrap;
@@ -112,6 +43,7 @@
     @include for_breakpoint(desktop) {
         .contact__links {
             flex-flow: row nowrap;
+            align-items: flex-start;
         }
     }
 }

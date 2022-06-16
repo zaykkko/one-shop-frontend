@@ -1,5 +1,5 @@
 import FooterStyles from "./footer.scss";
-import SharedStyles from "@shared/styles/shared.scss";
+import SharedStyles from "@shared/styles.scss";
 
 import classnames from "classnames";
 

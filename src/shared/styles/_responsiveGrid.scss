@@ -1,0 +1,18 @@
+.responsiveGrid {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-around;
+}
+
+@include for_breakpoint(tablet) {
+    .responsiveGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@include for_breakpoint(desktop) {
+    .responsiveGrid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}

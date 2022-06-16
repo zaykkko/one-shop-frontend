@@ -8,34 +8,15 @@
     gap: var(--gap);
     height: 5rem;
 
-    a i.header__logo {
-        width: 10rem;
-    }
-
-    .header__searchForm {
-        display: none;
-        flex: 3 1;
-        align-items: center;
-        background: var(--black-5);
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        gap: calc(var(--gap) - 0.5rem);
-
-        .header__fieldset {
-            flex-grow: 1;
-
-            input {
-                max-width: 25rem;
-            }
-        }
-    }
+    @import "searchForm";
 
     .header__loginBtn {
         background-color: transparent;
         border: 1px solid var(--blue);
         color: var(--blue);
         font-weight: 600;
-        padding: 12px 3rem;
+        text-align: center;
+        padding: 12px 2rem;
         transition: background-color 120ms ease-in-out;
 
         &:hover {
@@ -55,31 +36,33 @@
         }
     }
 
-    i.icon__search,
-    i.icon__cross {
-        width: 1.8rem;
-    }
-
-    i.icon__cross {
+    .icon__cross {
         display: none;
     }
 
     &.header-searching {
-        a,
-        .header__loginBtn {
+        a {
             display: none;
         }
 
-        .header__searchForm {
+        .searchForm {
             display: flex;
         }
 
-        i.icon__search {
-            display: none;
-        }
+        .header__searchBtn {
+            .icon__search {
+                display: none;
+            }
 
-        i.icon__cross {
-            display: block;
+            .icon__cross {
+                display: block;
+            }
+        }
+    }
+
+    @include for_breakpoint(mobile) {
+        .header__logo {
+            width: 9rem;
         }
     }
 
@@ -88,13 +71,13 @@
             display: none;
         }
 
-        .header__searchForm {
+        .searchForm {
             display: flex;
         }
     }
 
     @include for_breakpoint(desktop) {
-        .header__searchForm {
+        .searchForm {
             flex: 0 1;
 
             input {

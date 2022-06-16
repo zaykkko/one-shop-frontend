@@ -1,4 +1,4 @@
-import {join} from "path";
+import {join, basename} from "path";
 import dotenv from "dotenv";
 import TsconfigPathsWebpackPlugin from "tsconfig-paths-webpack-plugin";
 import {EnvironmentPlugin} from "webpack";
@@ -22,6 +22,7 @@ const webpackConfig = async (
         output: {
             clean: true,
             path: join(__dirname, "build"),
+            publicPath: "/",
         },
 
         resolve: {
@@ -37,16 +38,47 @@ const webpackConfig = async (
                     loader: "babel-loader",
                 },
                 {
-                    test: /\.svg$/,
-                    use: ["@svgr/webpack"],
+                    // Exported as an asset **/*.svg
+                    test: /\.svg$/i,
+                    type: "asset/resource",
+                    resourceQuery: /url/,
+                    generator: {
+                        filename: "static/[hash][ext]",
+                    },
                 },
                 {
-                    test: /\.(svg|png|jpg|json)$/,
-                    exclude: /node_modules/,
-                    loader: "file-loader",
-                    options: {
-                        name: "static/media/[name].[hash:8].[ext]",
-                    },
+                    // Exported as an <svg> at the beginning of the <body>
+                    test: /\.svg$/,
+                    issuer: /\.tsx?$/,
+                    resourceQuery: /sprite/,
+                    use: [
+                        {
+                            loader: "svg-sprite-loader",
+                            options: {
+                                symbolId: (filePath: string) =>
+                                    `icon-${basename(filePath)}`,
+                            },
+                        },
+                    ],
+                },
+                {
+                    // Exported as an component <svg></svg>
+                    test: /\.svg$/,
+                    issuer: /\.tsx?$/,
+                    resourceQuery: {not: [/(url|sprite)/]},
+                    use: [
+                        {
+                            loader: "@svgr/webpack",
+                            options: {
+                                memo: true,
+                                svgProps: {
+                                    focusable: false,
+                                    fill: "currentColor",
+                                },
+                                prettier: false,
+                            },
+                        },
+                    ],
                 },
             ],
         },

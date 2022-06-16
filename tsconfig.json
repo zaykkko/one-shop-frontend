@@ -8,11 +8,15 @@
     "baseUrl": "./src",
     "paths": {
       "@root/*": ["*"],
-      "@shared/*": ["/shared/*"],
-      "@utils/*": ["/utils/react/*"]
+      "@shared/styles.scss": ["./shared/styles/shared.scss"],
+      "@shared/*": ["./shared/components/*"],
+      "@util/*": ["./utils/react/*"],
+      "@sprite/*": ["./sprites/*"],
+      "@context/*": ["./states/contexts/*"],
+      "@reducer/*": ["./states/reducers/*"]
     },
     "types": ["node"],
-    "typeRoots": ["node_modules/@types", "./src/types"],
+    "typeRoots": ["node_modules/@types", "./types"],
     "sourceMap": true,
     "removeComments": true,
     "downlevelIteration": true,
@@ -22,9 +26,15 @@
     "strict": true,
     "noImplicitAny": true,
     "alwaysStrict": true,
-    "noUnusedLocals": true,
-    "noImplicitReturns": true
+    "noUnusedLocals": true
   },
-  "exclude": ["node_modules", "dist", "static"],
-  "include": ["./src", "webpack.config.ts", "types"]
+  "exclude": ["node_modules", "static", "build"],
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "types",
+    "webpack.config.ts",
+    "webpack.development.ts",
+    "webpack.production.ts"
+  ]
 }

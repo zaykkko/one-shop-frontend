@@ -1,0 +1,39 @@
+section.login {
+    .login__form {
+        text-align: center;
+        margin: 5rem 0;
+
+        fieldset {
+            display: flex;
+            flex-flow: column wrap;
+
+            legend {
+                font-weight: 700;
+            }
+
+            .login__input {
+                background: var(--white);
+                border-bottom: 2px solid var(--black-30);
+                border-radius: var(--radius);
+                padding: 1rem;
+                width: 22.56rem;
+                margin: auto;
+
+                &.login__input-error {
+                    border-color: var(--red);
+                }
+            }
+
+            span[role="alert"] {
+                color: var(--red);
+                font-weight: 600;
+            }
+
+            legend,
+            span[role="alert"],
+            .login__input {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}

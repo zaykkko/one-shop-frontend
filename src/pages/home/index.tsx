@@ -1,11 +1,13 @@
+import {Title} from "@util/title";
 import PromotionBanner from "./promotionBanner";
 import {CategoryList} from "./productCategories";
 
 const Home = () => (
-    <main role="main">
+    <>
+        <Title>Inicio | AluraGeek</Title>
         <PromotionBanner />
         <CategoryList />
-    </main>
+    </>
 );
 
 export default Home;

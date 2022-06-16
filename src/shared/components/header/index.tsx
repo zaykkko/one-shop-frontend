@@ -1,66 +1,18 @@
 import HeaderStyles from "./header.scss";
-import SharedStyles from "@shared/styles/shared.scss";
+import SharedStyles from "@shared/styles.scss";
 
 import classnames from "classnames";
 import {Link} from "react-location";
 import {useCallback, useState, useRef, useEffect} from "react";
-import {useForm} from "react-hook-form";
+import logo from "@sprite/logo.svg?url";
+import MagnifyingGlass from "@sprite/ms-glass.svg";
+import CloseCross from "@sprite/close.svg";
 
-interface ISearchForm {
-    query: string;
-}
-
-const SearchForm = () => {
-    const {
-        register,
-        handleSubmit,
-        //formState: {errors},
-    } = useForm<ISearchForm>({
-        defaultValues: {
-            query: "",
-        },
-    });
-    const onSubmit = useCallback((data: ISearchForm) => console.log(data), []);
-
-    return (
-        <form
-            className={HeaderStyles.header__searchForm}
-            method="GET"
-            onSubmit={handleSubmit(onSubmit)}
-        >
-            <fieldset className={HeaderStyles.header__fieldset}>
-                <label
-                    className={SharedStyles["visually-hidden"]}
-                    htmlFor="search-query"
-                >
-                    ¿Qué deseas buscar?
-                </label>
-                <input
-                    id="search-query"
-                    type="text"
-                    placeholder="¿Qué deseas buscar?"
-                    autoComplete="off"
-                    spellCheck="false"
-                    required={true}
-                    {...register("query")}
-                />
-            </fieldset>
-            <button type="submit">
-                <i className={HeaderStyles.icon__search}>
-                    <svg
-                        focusable="false"
-                        viewBox="0 0 22 22"
-                        fill="currentColor"
-                    >
-                        <use href="#ms-glass"></use>
-                    </svg>
-                </i>
-            </button>
-        </form>
-    );
-};
+import {useAuth} from "@context/auth";
+import SearchForm from "./searchForm";
 
 const Header = () => {
+    const {isLoggedIn} = useAuth();
     const [isFormVisible, setFormVisible] = useState(false);
     const headerRef = useRef<HTMLElement>(null);
 
@@ -96,39 +48,35 @@ const Header = () => {
             })}
         >
             <Link title="Alura Geek" to="/">
-                <i className={HeaderStyles.header__logo}>
-                    <svg focusable="false" viewBox="0 0 176 51">
-                        <use href="#logo"></use>
-                    </svg>
-                </i>
+                <img
+                    src={logo}
+                    className={classnames(
+                        SharedStyles.logo,
+                        HeaderStyles.header__logo
+                    )}
+                />
             </Link>
             <SearchForm />
-            <Link className={HeaderStyles.header__loginBtn} to="/login">
-                Iniciar sesión
-            </Link>
+            {!isLoggedIn && (
+                <Link className={HeaderStyles.header__loginBtn} to="/login">
+                    Iniciar sesión
+                </Link>
+            )}
+            {isLoggedIn && (
+                <Link
+                    className={HeaderStyles.header__loginBtn}
+                    to="/product/all"
+                >
+                    Ver productos
+                </Link>
+            )}
             <button
                 onClick={toggleFormVisibility}
                 className={HeaderStyles.header__searchBtn}
                 type="button"
             >
-                <i className={HeaderStyles.icon__search}>
-                    <svg
-                        focusable="false"
-                        viewBox="0 0 22 22"
-                        fill="currentColor"
-                    >
-                        <use href="#ms-glass"></use>
-                    </svg>
-                </i>
-                <i className={HeaderStyles.icon__cross}>
-                    <svg
-                        focusable="false"
-                        viewBox="0 0 22 22"
-                        fill="currentColor"
-                    >
-                        <use href="#cross"></use>
-                    </svg>
-                </i>
+                <MagnifyingGlass className={HeaderStyles.icon__search} />
+                <CloseCross className={HeaderStyles.icon__cross} />
             </button>
         </header>
     );

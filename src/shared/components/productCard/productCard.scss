@@ -1,0 +1,66 @@
+@import "@utils/breakpoints";
+
+.productCard {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--gap);
+    margin-bottom: var(--gap);
+
+    .productCard__header {
+        position: relative;
+
+        .productCard__actionBtns {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            right: 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border-bottom-left-radius: 10px;
+            gap: calc(var(--gap) + 0.5rem);
+
+            button {
+                width: 1.2rem;
+                color: var(--white);
+
+                &:nth-child(1):hover {
+                    color: var(--red);
+                }
+
+                &:nth-child(2):hover {
+                    color: var(--black-30);
+                }
+            }
+        }
+
+        img {
+            min-width: 9.75rem;
+            height: 12.65rem;
+            object-fit: cover;
+        }
+    }
+
+    .productCard__body {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: calc(var(--gap) - 0.5rem);
+
+        .productCard__title h2 {
+            font-weight: 500;
+        }
+
+        .productCard__price p {
+            font-weight: 600;
+        }
+
+        .productCard__anchor {
+            color: var(--blue-80);
+            font-weight: 600;
+            transition: 0.2s color ease-in;
+
+            &:hover {
+                color: var(--blue-120);
+            }
+        }
+    }
+}

@@ -19,6 +19,7 @@ export default {
                     {
                         loader: "css-loader",
                         options: {
+                            sourceMap: true,
                             importLoaders: 1,
                             modules: {
                                 localIdentName: "[local]-[hash:base64:6]",
@@ -28,6 +29,7 @@ export default {
                     {
                         loader: "sass-loader",
                         options: {
+                            sourceMap: true,
                             sassOptions: {
                                 importer: new SassAlias({
                                     "@utils": join(
@@ -63,7 +65,7 @@ export default {
         historyApiFallback: true,
         static: {
             directory: resolve(__dirname, "static"),
-            publicPath: "/assets",
+            publicPath: "/static",
         },
     },
 };

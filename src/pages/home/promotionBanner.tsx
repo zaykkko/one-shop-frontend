@@ -1,5 +1,5 @@
 import HomeStyles from "./home.scss";
-import SharedStyles from "@shared/styles/shared.scss";
+import SharedStyles from "@shared/styles.scss";
 
 import classnames from "classnames";
 import {Link} from "react-location";
@@ -9,7 +9,7 @@ const PromotionBanner = () => (
         <div
             className={HomeStyles.promotion__image}
             style={{
-                backgroundImage: 'url("./assets/img/unsplash_promotion.jpg")',
+                backgroundImage: `url("${process.env.BASE_URL}/promotionBanner.jpg")`,
             }}
         ></div>
         <div className={HomeStyles.promotion__info}>

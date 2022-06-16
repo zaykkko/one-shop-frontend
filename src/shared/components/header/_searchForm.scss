@@ -1,0 +1,17 @@
+.searchForm {
+    display: none;
+    flex: 3 1;
+    align-items: center;
+    background: var(--black-5);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    gap: calc(var(--gap) - 0.5rem);
+
+    .searchForm__fieldset {
+        flex-grow: 1;
+
+        input {
+            max-width: 25rem;
+        }
+    }
+}
