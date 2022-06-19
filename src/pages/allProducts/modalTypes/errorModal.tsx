@@ -1,7 +1,7 @@
 import ErrorModalStyles from "./errorModal.scss";
 import SharedStyles from "@shared/styles.scss";
 
-import {useModal} from "@shared/modal";
+import {useModal} from "@shared/component/modal";
 
 const ErrorModal = () => {
     const {onModalClose} = useModal();

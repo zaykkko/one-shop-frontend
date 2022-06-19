@@ -9,7 +9,7 @@ import {
     useAluraGeekCategoryProducts,
     useAluraGeekCategory,
 } from "@context/aluraGeek";
-import {ProductCard} from "@shared/productCard";
+import {ProductCard} from "@shared/component/productCard";
 
 type CategoryParamGeneric = MakeGenerics<{
     Params: {

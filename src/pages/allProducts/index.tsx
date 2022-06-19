@@ -9,11 +9,11 @@ import classnames from "classnames";
 import {Title} from "@util/title";
 import {useAluraGeek} from "@context/aluraGeek";
 import {useAuth} from "@context/auth";
-import {Modal} from "@shared/modal";
-import {ProductCard} from "@shared/productCard";
+import {Modal} from "@shared/component/modal";
+import {ProductCard} from "@shared/component/productCard";
 import ModalTypeRenderer from "./modalTypeRender";
 
-import type {ActionBtnCallbacksProps} from "@shared/productCard";
+import type {ActionBtnCallbacksProps} from "@shared/component/productCard";
 import type {ProductData} from "@reducer/aluraGeekReducer";
 
 type ProductListProps = ActionBtnCallbacksProps & {

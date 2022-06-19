@@ -5,7 +5,7 @@ import classnames from "classnames";
 import {Link} from "react-location";
 
 import {useAluraGeek, useAluraGeekCategoryProducts} from "@context/aluraGeek";
-import {ProductCard} from "@shared/productCard";
+import {ProductCard} from "@shared/component/productCard";
 
 import RightArrow from "@sprite/r-arrow.svg";
 

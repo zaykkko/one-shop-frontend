@@ -6,13 +6,11 @@ import classnames from "classnames";
 
 import {useAluraGeekContext} from "@context/aluraGeek";
 import {removeItemDispatcher} from "@reducer/aluraGeekReducer";
-import {useModal} from "@shared/modal";
+import {useModal} from "@shared/component/modal";
 
 import type {ProductData} from "@reducer/aluraGeekReducer";
 
-const ConfirmationModal = ({product}: {
-    product: ProductData;
-}) => {
+const ConfirmationModal = ({product}: {product: ProductData}) => {
     const {dispatch} = useAluraGeekContext();
     const {onModalClose} = useModal();
 
