@@ -1,4 +1,4 @@
-import {join, basename} from "path";
+import {join} from "path";
 import {readFileSync} from "fs";
 import dotenv from "dotenv";
 import TsconfigPathsWebpackPlugin from "tsconfig-paths-webpack-plugin";
@@ -24,9 +24,10 @@ const webpackConfig = ({mode}: {mode: "production"}): Configuration => {
 
         output: {
             path: join(__dirname, "build"),
+            publicPath: "/",
             clean: true,
-            filename: "[contenthash].js",
-            chunkFilename: "[name].[contenthash].js",
+            filename: "js/[contenthash].js",
+            chunkFilename: "js/[contenthash].js",
             crossOriginLoading: "anonymous" as "anonymous",
         },
 
@@ -50,24 +51,6 @@ const webpackConfig = ({mode}: {mode: "production"}): Configuration => {
                     generator: {
                         filename: "static/[hash][ext]",
                     },
-                },
-                {
-                    // Exported as an <svg> at the beginning of the <body>
-                    test: /\.svg$/,
-                    issuer: /\.tsx?$/,
-                    resourceQuery: /sprite/,
-                    use: [
-                        {
-                            loader: "svg-sprite-loader",
-                            options: {
-                                symbolId: (filePath: string) =>
-                                    `icon-${basename(filePath).replace(
-                                        /\.[^/.]+$/,
-                                        ""
-                                    )}`,
-                            },
-                        },
-                    ],
                 },
                 {
                     // Exported as an component <svg></svg>
@@ -154,7 +137,7 @@ const webpackConfig = ({mode}: {mode: "production"}): Configuration => {
                 banner: readFileSync("./LICENSE", "utf-8"),
             }),
             new MiniCssExtractPlugin({
-                filename: "[contenthash].css",
+                filename: "css/[contenthash].css",
             }),
             new SubresourceIntegrityPlugin(),
         ], //https://github.com/microsoft/TypeScript/issues/36769#issuecomment-585633004

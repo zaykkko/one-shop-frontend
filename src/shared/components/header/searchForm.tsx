@@ -1,6 +1,7 @@
 import HeaderStyles from "./header.scss";
 import SharedStyles from "@shared/styles.scss";
 
+import classnames from "classnames";
 import {useCallback, useId} from "react";
 import {useForm} from "react-hook-form";
 import MagnifyingGlass from "@sprite/ms-glass.svg";
@@ -49,7 +50,12 @@ const SearchForm = () => {
                 />
             </fieldset>
             <button type="submit">
-                <MagnifyingGlass className={HeaderStyles.icon__search} />
+                <MagnifyingGlass
+                    className={classnames(
+                        SharedStyles.icon,
+                        HeaderStyles.icon__search
+                    )}
+                />
             </button>
         </form>
     );

@@ -1,4 +1,4 @@
-import {join, resolve, basename} from "path";
+import {join, resolve} from "path";
 import SassAlias from "sass-alias";
 import dotenv from "dotenv";
 import TsconfigPathsWebpackPlugin from "tsconfig-paths-webpack-plugin";
@@ -46,21 +46,6 @@ const webpackConfig = ({mode}: {mode: "development"}): Configuration => {
                     generator: {
                         filename: "static/[hash][ext]",
                     },
-                },
-                {
-                    // Exported as an <svg> at the beginning of the <body>
-                    test: /\.svg$/,
-                    issuer: /\.tsx?$/,
-                    resourceQuery: /sprite/,
-                    use: [
-                        {
-                            loader: "svg-sprite-loader",
-                            options: {
-                                symbolId: (filePath: string) =>
-                                    `icon-${basename(filePath)}`,
-                            },
-                        },
-                    ],
                 },
                 {
                     // Exported as an component <svg></svg>
@@ -133,7 +118,7 @@ const webpackConfig = ({mode}: {mode: "development"}): Configuration => {
                 )
             ),
             new HtmlWebpackPlugin({
-                template: `./src/index.html`,
+                template: `./src/template.html`,
                 filename: `./index.html`,
                 chunks: ["app"],
                 meta: {},

@@ -1,13 +1,13 @@
 import CardStyles from "./productCard.scss";
+import SharedStyles from "@shared/styles.scss";
 
 import {Link} from "react-location";
 import {LazyLoadImage} from "react-lazy-load-image-component";
 
-import trashBinIcon from "@sprite/trash-bin.svg?sprite";
-import penIcon from "@sprite/edit-pen.svg?sprite";
+import TrashBinIcon from "@sprite/trash-bin.svg";
+import PenIcon from "@sprite/edit-pen.svg";
 
 import type {ProductData} from "@reducer/aluraGeekReducer";
-import React from "react";
 
 export type ActionBtnCallbacksProps = {
     onDeleteButtonClick(productId: ProductData["id"]): void;
@@ -35,24 +35,10 @@ const ProductCard = ({
                         type="button"
                         onClick={() => onDeleteButtonClick(id)}
                     >
-                        <svg
-                            focusable="false"
-                            viewBox={trashBinIcon.viewBox}
-                            fill="currentColor"
-                            fillRule="evenodd"
-                        >
-                            <use href={`#${trashBinIcon.id}`} />
-                        </svg>
+                        <TrashBinIcon className={SharedStyles["icon-2"]} />
                     </button>
                     <button type="button" onClick={() => onEditButtonClick(id)}>
-                        <svg
-                            focusable="false"
-                            viewBox={penIcon.viewBox}
-                            fill="currentColor"
-                            fillRule="evenodd"
-                        >
-                            <use href={`#${penIcon.id}`} />
-                        </svg>
+                        <PenIcon className={SharedStyles["icon-2"]} />
                     </button>
                 </div>
             )}
