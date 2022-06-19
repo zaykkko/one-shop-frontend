@@ -18,7 +18,9 @@ const webpackConfig = ({mode}: {mode: "production"}): Configuration => {
 
         target: "web",
 
-        entry: "./src/app.tsx",
+        entry: {
+            app: "./src/app.tsx",
+        },
 
         output: {
             path: join(__dirname, "build"),
