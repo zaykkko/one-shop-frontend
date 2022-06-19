@@ -4,7 +4,7 @@
   "description": "Zaykkko's shop ;)",
   "scripts": {
     "start": "node app",
-    "heroku-postbuild": "npm install && npm run build",
+    "heroku-postbuild": "npm run build",
     "dev": "webpack-dev-server --config ./webpack.development.ts --env development mode=development",
     "build": "webpack --config ./webpack.production.ts --env production mode=production --progress",
     "lint": "npm run eslint & npm run stylelint",
