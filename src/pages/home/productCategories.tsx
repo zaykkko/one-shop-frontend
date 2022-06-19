@@ -22,7 +22,12 @@ const Category = ({
                 <h1>{categoryName}</h1>
                 <Link to={`./sale/${categoryGroupId}`}>
                     Ver todo
-                    <RightArrow className={HomeStyles.icon__arrowRight} />
+                    <RightArrow
+                        className={classnames(
+                            SharedStyles.icon,
+                            HomeStyles.icon__arrowRight
+                        )}
+                    />
                 </Link>
             </div>
             <div className={HomeStyles.products__body}>

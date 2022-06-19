@@ -75,8 +75,18 @@ const Header = () => {
                 className={HeaderStyles.header__searchBtn}
                 type="button"
             >
-                <MagnifyingGlass className={HeaderStyles.icon__search} />
-                <CloseCross className={HeaderStyles.icon__cross} />
+                <MagnifyingGlass
+                    className={classnames(
+                        SharedStyles.icon,
+                        HeaderStyles.icon__search
+                    )}
+                />
+                <CloseCross
+                    className={classnames(
+                        SharedStyles.icon,
+                        HeaderStyles.icon__cross
+                    )}
+                />
             </button>
         </header>
     );

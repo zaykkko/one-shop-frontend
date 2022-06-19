@@ -30,12 +30,22 @@ const Navigation = () => {
                     <button type="button" onClick={toggleTheme}>
                         {theme === "dark" ? (
                             <>
-                                <Moon className={FooterStyles.icon__theme} />
+                                <Moon
+                                    className={classnames(
+                                        SharedStyles.icon,
+                                        FooterStyles.icon__theme
+                                    )}
+                                />
                                 Tema oscuro
                             </>
                         ) : (
                             <>
-                                <Sun className={FooterStyles.icon__theme} />
+                                <Sun
+                                    className={classnames(
+                                        SharedStyles.icon,
+                                        FooterStyles.icon__theme
+                                    )}
+                                />
                                 Tema claro
                             </>
                         )}
