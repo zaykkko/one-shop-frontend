@@ -1,6 +1,16 @@
-import {createContext, useContext, useReducer} from "react";
+import {
+    createContext,
+    useContext,
+    useEffect,
+    useReducer,
+    useDebugValue,
+} from "react";
 
-import {productReducer, productInitialState} from "@reducer/aluraGeekReducer";
+import {
+    productReducer,
+    productInitialState,
+    refreshDataDispatcher,
+} from "@reducer/aluraGeekReducer";
 import type {
     AluraGeekReducerAction,
     AluraGeekReducerState,
@@ -37,14 +47,52 @@ export function useAluraGeek() {
     return context.state;
 }
 
-export function useAluraGeekProducts(categoryId: number) {
+export function useAluraGeekCategoryProducts(categoryId: string) {
     const {products} = useAluraGeek();
 
     return products.filter((product) => product.categoryId === categoryId);
 }
 
+export function useAluraGeekCategory(categoryGroupId: string) {
+    const {categories} = useAluraGeek();
+
+    const categoryIndex = categories.findIndex(
+        (category) => category.categoryGroupId === categoryGroupId
+    );
+
+    useDebugValue(categoryGroupId);
+
+    return categoryIndex === -1 ? null : categories[categoryIndex];
+}
+
+export function useAluraGeekProduct(productId: string) {
+    const {products} = useAluraGeek();
+
+    const productIndex = products.findIndex(
+        (product) => product.id === productId
+    );
+
+    useDebugValue(productId);
+
+    return productIndex === -1 ? null : products[productIndex];
+}
+
 export const AluraGeekProvider = ({children}: {children: React.ReactNode}) => {
     const [state, dispatch] = useReducer(productReducer, productInitialState);
+
+    useEffect(() => {
+        function onStorageChange({key}: StorageEvent) {
+            if (key === (process.env.ALURAGEEK_STORAGE_KEY as string)) {
+                dispatch(refreshDataDispatcher());
+            }
+        }
+
+        window.addEventListener("storage", onStorageChange);
+
+        return () => {
+            window.removeEventListener("storage", onStorageChange);
+        };
+    }, []);
 
     return (
         <AluraGeekContext.Provider value={{state, dispatch}}>

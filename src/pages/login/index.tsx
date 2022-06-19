@@ -34,7 +34,6 @@ const LoginForm = () => {
         formState: {errors},
         setError,
     } = useForm<ILoginFormInputs>({
-        reValidateMode: "onBlur",
         resolver: yupResolver(loginFormSchema),
     });
     const navigate = useNavigate();
@@ -74,6 +73,7 @@ const LoginForm = () => {
                     type="email"
                     autoComplete="email"
                     placeholder="Email"
+                    aria-invalid={!!errors.email}
                     {...register("email")}
                 />
                 {errors.email && (
@@ -93,6 +93,7 @@ const LoginForm = () => {
                     type="password"
                     autoComplete="current-password"
                     placeholder="Contraseña"
+                    aria-invalid={!!errors.password}
                     {...register("password")}
                 />
                 {errors.password && (

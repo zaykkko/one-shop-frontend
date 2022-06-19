@@ -1,0 +1,42 @@
+.confirmModal {
+    text-align: center;
+
+    .confirmModal__warn {
+        margin-bottom: var(--gap);
+
+        h2 {
+            font-weight: 600;
+            margin-bottom: var(--gap);
+        }
+
+        .confirmModal__preview {
+            display: flex;
+            justify-content: center;
+            gap: var(--gap);
+
+            img {
+                width: 10rem;
+                height: 12rem;
+                border-radius: var(--radius);
+                object-fit: cover;
+            }
+
+            .confirmModal__productInfo {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                gap: var(--gap);
+
+                h3 {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .confirmModal__buttons {
+        display: flex;
+        justify-content: center;
+        gap: var(--gap);
+    }
+}

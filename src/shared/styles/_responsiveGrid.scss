@@ -3,16 +3,24 @@
     gap: var(--gap);
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-around;
-}
 
-@include for_breakpoint(tablet) {
-    .responsiveGrid {
+    &.responsiveGrid-limited {
+        li:nth-child(n + 5) {
+            display: none;
+        }
+    }
+
+    @include for_breakpoint(tablet) {
         grid-template-columns: repeat(4, 1fr);
     }
-}
 
-@include for_breakpoint(desktop) {
-    .responsiveGrid {
+    @include for_breakpoint(desktop) {
         grid-template-columns: repeat(6, 1fr);
+
+        &.responsiveGrid-limited {
+            li:nth-child(n + 5) {
+                display: flex;
+            }
+        }
     }
 }

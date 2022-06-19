@@ -2,7 +2,6 @@
 @use "sass:meta";
 @use "sass:map";
 @use "sass:list";
-
 @import "@utils/variables";
 
 $media_queries: (
@@ -12,7 +11,7 @@ $media_queries: (
     "retina2": string.unquote("only screen and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi)"),
     "retina3": string.unquote("only screen and (-webkit-min-device-pixel-ratio: 3) and (min-resolution: 288dpi)"),
     "landscape": string.unquote("screen and (orientation:landscape)"),
-    "portrait": string.unquote("screen and (orientation:portrait)")
+    "portrait": string.unquote("screen and (orientation:portrait)"),
 );
 
 @mixin for_breakpoint($breakpoints) {

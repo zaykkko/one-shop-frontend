@@ -2,7 +2,7 @@ import {createContext, useContext, useState, useCallback} from "react";
 
 interface AuthContextType {
     isLoggedIn: boolean;
-    setIsLoggedIn: (isLogged: boolean) => void;
+    setIsLoggedIn(isLogged: boolean): void;
 }
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType);
@@ -11,7 +11,7 @@ export function useAuth() {
     const context = useContext(AuthContext);
 
     if (context === undefined) {
-        throw new Error("useAuth must be used within a AuthContext");
+        throw new Error("useAuthContext must be used within a AuthContext");
     }
 
     return context;

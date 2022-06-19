@@ -1,0 +1,12 @@
+.newProduct {
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        gap: 0.7rem;
+
+        legend {
+            margin-bottom: 1rem;
+        }
+    }
+}

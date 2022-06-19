@@ -12,10 +12,16 @@
     --black-50: #a2a2a2;
     --black-80: #6b6b6b;
     --red: #e83f5b;
+    --red-80: #ec697f;
     --gap: 1rem;
     --radius: calc(1rem / 4);
 
-    &.theme_dark {
-        color: var(--black);
+    &[dark="true"] {
+        --blue-10: #20262e;
+        --blue-20: #233243;
+        --white: #121212;
+        --black: #fff;
+        --black-5: #222;
+        --black-30: #b6b7b7;
     }
 }

@@ -29,17 +29,5 @@
                 }
             }
         }
-
-        .products__body {
-            ul li:nth-child(n + 5) {
-                display: none;
-            }
-        }
-    }
-
-    @include for_breakpoint(desktop) {
-        .products__category .products__body ul li:nth-child(n + 5) {
-            display: flex;
-        }
     }
 }

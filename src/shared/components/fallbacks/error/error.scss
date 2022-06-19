@@ -1,0 +1,15 @@
+.errorFallback {
+    background-color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+
+    h1 {
+        font-weight: 600;
+    }
+
+    h1,
+    h2 {
+        padding-bottom: 1rem;
+        line-height: 1.5rem;
+    }
+}

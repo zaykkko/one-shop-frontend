@@ -21,7 +21,7 @@
 
             button {
                 width: 1.2rem;
-                color: var(--white);
+                color: #fff;
 
                 &:nth-child(1):hover {
                     color: var(--red);
@@ -37,12 +37,14 @@
             min-width: 9.75rem;
             height: 12.65rem;
             object-fit: cover;
+            border-radius: var(--radius);
         }
     }
 
     .productCard__body {
         display: flex;
         flex-flow: column nowrap;
+        align-items: flex-start;
         gap: calc(var(--gap) - 0.5rem);
 
         .productCard__title h2 {

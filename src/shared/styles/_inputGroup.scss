@@ -1,0 +1,40 @@
+.inputGroup {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    border-bottom: 2px solid var(--black-30);
+    display: flex;
+    flex-direction: column;
+    padding: 0.7rem;
+
+    label {
+        color: var(--black-50);
+        padding-bottom: 0.5rem;
+    }
+
+    .inputGroup__lineDeco {
+        position: relative;
+        margin: auto;
+        height: 2px;
+        width: 0px;
+        transition: 0.25s width ease-in-out;
+        top: -2px;
+    }
+
+    input,
+    textarea {
+        border: none;
+        border-bottom: 2px solid var(--black-30);
+        display: block;
+        padding-bottom: 0.5rem;
+
+        &:focus + .inputGroup__lineDeco {
+            width: 100%;
+            background-color: #02add7;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 5rem;
+    }
+}

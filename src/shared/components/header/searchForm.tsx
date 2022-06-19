@@ -1,25 +1,29 @@
 import HeaderStyles from "./header.scss";
 import SharedStyles from "@shared/styles.scss";
 
-import {useCallback} from "react";
+import {useCallback, useId} from "react";
 import {useForm} from "react-hook-form";
 import MagnifyingGlass from "@sprite/ms-glass.svg";
 
-interface ISearchForm {
+interface ISearchFormInputs {
     query: string;
 }
 
 const SearchForm = () => {
+    const formId = useId();
     const {
         register,
         handleSubmit,
         //formState: {errors},
-    } = useForm<ISearchForm>({
+    } = useForm<ISearchFormInputs>({
         defaultValues: {
             query: "",
         },
     });
-    const onSubmit = useCallback((data: ISearchForm) => console.log(data), []);
+    const onSubmit = useCallback(
+        (data: ISearchFormInputs) => console.log(data),
+        []
+    );
 
     return (
         <form
@@ -30,12 +34,12 @@ const SearchForm = () => {
             <fieldset className={HeaderStyles.searchForm__fieldset}>
                 <label
                     className={SharedStyles["visually-hidden"]}
-                    htmlFor="search-query"
+                    htmlFor={formId + "search-query"}
                 >
                     ¿Qué deseas buscar?
                 </label>
                 <input
-                    id="search-query"
+                    id={formId + "search-query"}
                     type="search"
                     placeholder="¿Qué deseas buscar?"
                     autoComplete="off"

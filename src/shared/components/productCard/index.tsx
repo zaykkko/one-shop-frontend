@@ -9,22 +9,24 @@ import penIcon from "@sprite/edit-pen.svg?sprite";
 import type {ProductData} from "@reducer/aluraGeekReducer";
 import React from "react";
 
-export interface IActionBtnCallbacks {
-    onDeleteButtonClick?: (productId: number) => void;
-    onEditButtonClick?: (productId: number) => void;
-}
+export type ActionBtnCallbacksProps = {
+    onDeleteButtonClick(productId: ProductData["id"]): void;
+    onEditButtonClick(productId: ProductData["id"]): void;
+};
 
-export interface IProductCardProps extends IActionBtnCallbacks {
+export type ProductCardProps = Partial<ActionBtnCallbacksProps> & {
     productData: ProductData;
     editable?: boolean;
-}
+    lazy?: boolean;
+};
 
 const ProductCard = ({
     productData: {id, img_url, title, price},
     editable = false,
+    lazy = true,
     onDeleteButtonClick,
     onEditButtonClick,
-}: React.PropsWithChildren<IProductCardProps>) => (
+}: React.PropsWithChildren<ProductCardProps>) => (
     <li className={CardStyles.productCard}>
         <div className={CardStyles.productCard__header}>
             {editable && onDeleteButtonClick && onEditButtonClick && (
@@ -54,7 +56,11 @@ const ProductCard = ({
                     </button>
                 </div>
             )}
-            <LazyLoadImage src={img_url} />
+            {lazy ? (
+                <LazyLoadImage src={img_url} alt={title} />
+            ) : (
+                <img src={img_url} alt={title} />
+            )}
         </div>
         <div className={CardStyles.productCard__body}>
             <div className={CardStyles.productCard__title}>

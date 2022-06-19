@@ -19,6 +19,21 @@
         .contact__nav {
             flex-grow: 1;
 
+            button {
+                display: flex;
+                gap: 0.7rem;
+                padding: 1rem;
+                align-items: center;
+                margin: auto;
+                margin-bottom: 1.5rem;
+                background-color: var(--white);
+                border-radius: 6px;
+
+                .icon__theme {
+                    align-self: center;
+                }
+            }
+
             ul li {
                 margin-bottom: 1.5rem;
 

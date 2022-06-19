@@ -2,7 +2,7 @@ import FooterStyles from "./footer.scss";
 import SharedStyles from "@shared/styles.scss";
 
 import classnames from "classnames";
-import {useCallback} from "react";
+import {useCallback, useId} from "react";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -24,25 +24,22 @@ const contactFormSchema: SchemaOf<IContactFormInputs> = yup.object().shape({
 });
 
 const ContactForm = () => {
+    const formId = useId();
     const {register, handleSubmit} = useForm<IContactFormInputs>({
         resolver: yupResolver(contactFormSchema),
     });
-    const onSubmit = useCallback((data: IContactFormInputs) => {}, []);
+    const onSubmit = useCallback((data: IContactFormInputs) => {
+        window.location.href = `mailto:no-reply@gmail.com?subject=${data.name}&body=${data.message}`;
+    }, []);
 
     return (
-        <form method="POST" onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <fieldset>
                 <legend>Hable con nosotros</legend>
-                <div className={FooterStyles.form__inputgroup}>
-                    <label
-                        className={FooterStyles.form__label}
-                        htmlFor="contact-name"
-                    >
-                        Nombre
-                    </label>
+                <div className={SharedStyles.inputGroup}>
+                    <label htmlFor={formId + "contact-name"}>Nombre</label>
                     <input
-                        id="contact-name"
-                        className={FooterStyles.form__input}
+                        id={formId + "contact-name"}
                         type="text"
                         autoComplete="name"
                         minLength={3}
@@ -51,24 +48,20 @@ const ContactForm = () => {
                         required={true}
                         {...register("name")}
                     />
-                    <div className={FooterStyles.form__inputLine}></div>
+                    <div className={SharedStyles.inputGroup__lineDeco}></div>
                 </div>
-                <div className={FooterStyles.form__inputgroup}>
-                    <label
-                        className={FooterStyles.form__label}
-                        htmlFor="contact-message"
-                    >
+                <div className={SharedStyles.inputGroup}>
+                    <label htmlFor={formId + "contact-message"}>
                         Escribe tu mensaje
                     </label>
                     <textarea
-                        id="contact-message"
-                        className={FooterStyles.form__input}
+                        id={formId + "contact-message"}
                         required={true}
                         autoComplete="off"
                         spellCheck="true"
                         {...register("message")}
                     />
-                    <div className={FooterStyles.form__inputLine}></div>
+                    <div className={SharedStyles.inputGroup__lineDeco}></div>
                 </div>
             </fieldset>
             <button

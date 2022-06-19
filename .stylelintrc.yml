@@ -13,3 +13,5 @@ rules:
   no-invalid-position-at-import-rule: null
   length-zero-no-unit: null
   number-leading-zero: null
+  color-function-notation: null
+  alpha-value-notation: null

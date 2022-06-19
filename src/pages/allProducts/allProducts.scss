@@ -15,8 +15,11 @@
             font-weight: 600;
         }
 
-        a {
-            align-self: flex-start;
+        .allProducts__btnsArea {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: var(--gap);
         }
     }
 

@@ -5,9 +5,6 @@ module.exports = {
             {
                 useBuiltIns: "usage",
                 corejs: 3,
-                targets: {
-                    browsers: "last 2 versions",
-                },
             },
         ],
         [
