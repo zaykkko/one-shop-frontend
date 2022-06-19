@@ -9,7 +9,9 @@
     "paths": {
       "@root/*": ["*"],
       "@shared/styles.scss": ["./shared/styles/shared.scss"],
-      "@shared/*": ["./shared/components/*"],
+      "@shared/style/*": ["./shared/styles/*"],
+      "@shared/component/*": ["./shared/components/*"],
+      "@shared/schema/*": ["./shared/schemas/*"],
       "@util/*": ["./utils/react/*"],
       "@sprite/*": ["./sprites/*"],
       "@context/*": ["./states/contexts/*"],

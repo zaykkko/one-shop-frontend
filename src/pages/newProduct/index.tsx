@@ -5,41 +5,18 @@ import {useCallback, useMemo, useId} from "react";
 import {useForm, Controller} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {useNavigate} from "react-location";
-import * as yup from "yup";
 import Select from "react-select";
 
 import {Title} from "@util/title";
 import {useAluraGeekContext} from "@context/aluraGeek";
-import selectStyles from "@shared/react-select";
+import selectStyles from "@shared/style/react-select";
+
+import editableProductSchema from "@shared/schema/editableProduct";
 
 import {
     addItemDispatcher,
     EditableProductData,
 } from "@reducer/aluraGeekReducer";
-import type {SchemaOf} from "yup";
-
-const productFormSchema: SchemaOf<EditableProductData> = yup.object().shape({
-    img_url: yup
-        .string()
-        .matches(
-            /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
-            "FIELD_INVALID_URL"
-        )
-        .required("FIELD_REQUIRED"),
-    categoryId: yup
-        .string()
-        .matches(
-            /^\{?[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}\}?$/i,
-            "FIELD_INVALID"
-        )
-        .required("FIELD_REQUIRED"),
-    title: yup.string().required("FIELD_REQUIRED"),
-    price: yup
-        .string()
-        .matches(/^\d*(.{1}\d{1,2})?$/, "FIELD_ONLY_POSITIVE_FLOAT")
-        .required("FIELD_REQUIRED"),
-    description: yup.string().required("FIELD_REQUIRED"),
-});
 
 const NewProductForm = () => {
     const formId = useId();
@@ -54,7 +31,7 @@ const NewProductForm = () => {
         formState: {errors},
     } = useForm<EditableProductData>({
         reValidateMode: "onSubmit",
-        resolver: yupResolver(productFormSchema),
+        resolver: yupResolver(editableProductSchema),
     });
     const navigate = useNavigate();
 

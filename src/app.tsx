@@ -11,10 +11,10 @@ import {AluraGeekProvider} from "@context/aluraGeek";
 import {AuthProvider} from "@context/auth";
 import {ThemeProvider} from "@context/theme";
 
-import Header from "@shared/header";
-import Main from "@shared/main";
-import Footer from "@shared/footer";
-import ErrorFallback from "@shared/fallbacks/error";
+import Header from "@shared/component/header";
+import Main from "@shared/component/main";
+import Footer from "@shared/component/footer";
+import ErrorFallback from "@shared/component/fallbacks/error";
 
 Sentry.init({
     dsn: process.env.SENTRY_DSN,

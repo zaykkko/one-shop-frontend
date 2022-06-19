@@ -19,11 +19,14 @@ interface ILoginFormInputs {
 }
 
 const loginFormSchema: SchemaOf<ILoginFormInputs> = yup.object().shape({
-    email: yup.string().email("FIELD_INVALID_EMAIL").required("FIELD_REQUIRED"),
+    email: yup
+        .string()
+        .email("Por favor, introduce un email válido.")
+        .required("Por favor, completa este campo."),
     password: yup
         .string()
-        .max(16, "FIELD_INVALID_MAX_PW")
-        .required("FIELD_REQUIRED"),
+        .max(16, "Por favor, escribe una contraseña válida.")
+        .required("Por favor, completa este campo."),
 });
 
 const LoginForm = () => {

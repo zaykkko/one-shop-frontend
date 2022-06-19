@@ -24,13 +24,7 @@ section.login {
                 }
             }
 
-            span[role="alert"] {
-                color: var(--red);
-                font-weight: 600;
-            }
-
             legend,
-            span[role="alert"],
             .login__input {
                 margin-bottom: 1rem;
             }
