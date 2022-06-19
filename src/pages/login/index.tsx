@@ -50,7 +50,8 @@ const LoginForm = () => {
             navigate({to: "/"});
         } else {
             setError("email", {
-                message: "LOGIN_ACCOUNT_NOT_FOUND",
+                message:
+                    "Esta combinación de usuario y contraseña no coincide.",
             });
         }
     }, []);

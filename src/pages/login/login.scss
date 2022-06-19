@@ -25,6 +25,7 @@ section.login {
             }
 
             legend,
+            span[role="alert"],
             .login__input {
                 margin-bottom: 1rem;
             }
