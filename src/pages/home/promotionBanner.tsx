@@ -24,7 +24,7 @@ const PromotionBanner = () => (
                     HomeStyles.promotion__button,
                     SharedStyles.btn_basic
                 )}
-                to="./sales/consoles"
+                to="./sale/consoles"
             >
                 Ver consolas
             </Link>
