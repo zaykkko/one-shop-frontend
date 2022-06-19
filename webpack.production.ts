@@ -141,7 +141,7 @@ const webpackConfig = ({mode}: {mode: "production"}): Configuration => {
                 )
             ),
             new HtmlWebpackPlugin({
-                template: `./src/template.ejs`,
+                template: `./src/template.html`,
                 filename: `./index.html`,
                 chunks: ["app"],
                 minify: {
